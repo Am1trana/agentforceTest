@@ -103,7 +103,7 @@
       text-align: center;
     }
 
-    
+
     footer a {
       color: #1a73e8;
       text-decoration: none;
@@ -142,5 +142,26 @@
     © 2025 Amit Techila Services Lab • 
     <a href="https://amittechilaservices-lab.github.io/main/">Visit Main Page</a>
   </footer>
+
+  <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00Dd500000AyELt',
+				'External_Website_ESD',
+				'https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904',
+				{
+					scrt2URL: 'https://sendservices.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
