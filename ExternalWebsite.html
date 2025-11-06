@@ -159,23 +159,33 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-	// 🧩 Listen for the Messaging Ready Event — official API
-    window.addEventListener("onEmbeddedMessagingReady", function (event) {
-      console.log("✅ Messaging is ready, sending hidden pre-chat fields...");
+	window.addEventListener("onEmbeddedMessagingReady", function (event) {
+    console.log("✅ Messaging ready, sending persistent pre-chat data...");
 
-      // Use official Salesforce API to set hidden pre-chat fields
-      embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-        Email: "amit@techila.com",
-        First_Name: "Amit",
-        Last_Name: "Rana",
-        Subject: "Website Chat Lead"
-      });
+    const prechatData = {
+      Email: "amit@techila.com",
+      First_Name: "Amit",
+      Last_Name: "Rana",
+      Subject: "Website Chat Lead"
+    };
+
+    // 1️⃣ Populate hidden pre-chat fields (for bot context)
+    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
+
+    // 2️⃣ Persist same data into the conversation context (survives transfers)
+    embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
+
+    // 3️⃣ (Optional) Store as custom parameters on MessagingSession
+    embeddedservice_bootstrap.prechatAPI.setCustomContext({
+      customParams: prechatData
     });
+  });
 </script>
 <script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
+
 
 
 
