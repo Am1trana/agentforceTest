@@ -148,8 +148,9 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			// 🟢 Step 1: Define hidden pre-chat fields here
-      embeddedservice_bootstrap.settings.prechatFields = [
+			
+        // 🟢 Step 1: Define hidden pre-chat fields here
+	 	embeddedservice_bootstrap.settings.customDetails = [
         {
           "label": "Email",           // API name from Salesforce Pre-Chat mapping
           "value": "amit@techila.com", // replace dynamically if you have user's email
@@ -198,6 +199,7 @@
 
 </body>
 </html>
+
 
 
 
