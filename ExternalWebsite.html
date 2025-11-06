@@ -147,41 +147,6 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			
-        // 🟢 Step 1: Define hidden pre-chat fields here
-	 	embeddedservice_bootstrap.settings.customDetails = [
-        {
-          "label": "Email",           // API name from Salesforce Pre-Chat mapping
-          "value": "amit@techila.com", // replace dynamically if you have user's email
-          "transcriptFields": ["Email"],
-          "displayToAgent": true,
-          "isHidden": true
-        },
-        {
-          "label": "First_Name",
-          "value": "Amit",
-          "transcriptFields": ["First_Name"],
-          "displayToAgent": true,
-          "isHidden": true
-        },
-        {
-          "label": "Last_Name",
-          "value": "Rana",
-          "transcriptFields": ["Last_Name"],
-          "displayToAgent": true,
-          "isHidden": true
-        },
-        {
-          "label": "Subject",
-          "value": "Website Chat Lead",
-          "transcriptFields": ["Subject"],
-          "displayToAgent": true,
-          "isHidden": true
-        }
-      ];
-
-
 			embeddedservice_bootstrap.init(
 				'00Dd500000AyELt',
 				'External_Website_ESD',
@@ -194,11 +159,24 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+	   // 🧩 Listen for the Messaging Ready Event — official API
+    window.addEventListener("onEmbeddedMessagingReady", function (event) {
+      console.log("✅ Messaging is ready, sending hidden pre-chat fields...");
+
+      // Use official Salesforce API to set hidden pre-chat fields
+      embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        Email: "amit@techila.com",
+        First_Name: "Amit",
+        Last_Name: "Rana",
+        Subject: "Website Chat Lead"
+      });
+    });
 </script>
 <script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
+
 
 
 
