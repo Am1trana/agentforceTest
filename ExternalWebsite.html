@@ -173,7 +173,7 @@
     embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
 
     // 2️⃣ Persist same data into the conversation context (survives transfers)
-    //embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
+    embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
 
     // 3️⃣ (Optional) Store as custom parameters on MessagingSession
     //embeddedservice_bootstrap.prechatAPI.setCustomContext({customParams: prechatData});
@@ -183,6 +183,7 @@
 
 </body>
 </html>
+
 
 
 
