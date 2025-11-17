@@ -170,21 +170,20 @@
     };
 
     // 1️⃣ Populate hidden pre-chat fields (for bot context)
-    //embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
+    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
 
     // 2️⃣ Persist same data into the conversation context (survives transfers)
     //embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
 
     // 3️⃣ (Optional) Store as custom parameters on MessagingSession
-    embeddedservice_bootstrap.prechatAPI.setCustomContext({
-      customParams: prechatData
-    });
+    //embeddedservice_bootstrap.prechatAPI.setCustomContext({customParams: prechatData});
   });
 </script>
 <script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
+
 
 
 
