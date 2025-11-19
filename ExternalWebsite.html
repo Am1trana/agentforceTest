@@ -126,7 +126,7 @@ z<!DOCTYPE html>
   </style>
 </head>
 <body>
-  <header>Amit Techila Services Agent 4</header>
+  <header>Amit Techila Services Agent 5</header>
 
   <div class="search-container">
     <div class="logo">Search</div>
@@ -166,19 +166,12 @@ z<!DOCTYPE html>
         Subject: document.getElementById("subject").value,
       };
       console.log('userPrechat>>', prechatData);
-		initEmbeddedMessaging();
     }
     console.log('userPrechat>>', prechatData);
-	 
-	 // const prechatData = {
-  //     Email: "amit@techila.com",
-  //     First_Name: "Amit",
-  //     Last_Name: "Rana",
-  //     Subject: "Website Chat Lead"
-  //   };
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			saveUserData();
 
 			window.addEventListener("onEmbeddedMessagingReady", () => {
     			console.log("Received the onEmbeddedMessagingReady event…");
@@ -205,6 +198,7 @@ z<!DOCTYPE html>
 
 </body>
 </html>
+
 
 
 
