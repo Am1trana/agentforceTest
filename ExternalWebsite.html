@@ -126,7 +126,7 @@ z<!DOCTYPE html>
   </style>
 </head>
 <body>
-  <header>Amit Techila Services Agent 2</header>
+  <header>Amit Techila Services Agent </header>
 
   <div class="search-container">
     <div class="logo">Search</div>
@@ -167,7 +167,8 @@ z<!DOCTYPE html>
       };
       console.log('userPrechat>>', userPrechat);
 	// 2️⃣ Persist same data into the conversation context (survives transfers)
-    embeddedservice_bootstrap.prechatAPI.setConversationContext(this.userPrechat);
+    embeddedservice_bootstrap.prechatAPI.setConversationContext(userPrechat);
+	embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(userPrechat);
     }
     console.log('userPrechat>>', userPrechat);
     
@@ -210,6 +211,7 @@ z<!DOCTYPE html>
 
 </body>
 </html>
+
 
 
 
