@@ -167,7 +167,7 @@
       };
       console.log('userPrechat>>', userPrechat);
 	// 2️⃣ Persist same data into the conversation context (survives transfers)
-    embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
+    embeddedservice_bootstrap.prechatAPI.setConversationContext(this.userPrechat);
     }
     console.log('userPrechat>>', userPrechat);
     
@@ -210,6 +210,7 @@
 
 </body>
 </html>
+
 
 
 
