@@ -1,4 +1,4 @@
-z<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -96,13 +96,76 @@ z<!DOCTYPE html>
       background: #1558b0;
     }
 
+    /* User Panel Styling */
+    .user-panel {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid #eee;
+      text-align: left;
+    }
+
+    .user-panel h3 {
+      color: #444;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .user-panel input {
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    .user-panel input:focus {
+      border-color: #1a73e8;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+      outline: none;
+    }
+
+    .save-btn {
+      width: 100%;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 10px;
+    }
+
+    .save-btn:hover {
+      background: #1558b0;
+    }
+
+    .preview-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
+      font-size: 0.9rem;
+      text-align: left;
+      display: none;
+    }
+
+    .preview-box.active {
+      display: block;
+    }
+
     footer {
       margin-top: 40px;
       font-size: 0.9rem;
       color: #888;
       text-align: center;
     }
-
 
     footer a {
       color: #1a73e8;
@@ -122,12 +185,11 @@ z<!DOCTYPE html>
       .logo {
         font-size: 1.6rem;
       }
-		
     }
   </style>
 </head>
 <body>
-  <header>Amit Techila Services Agent </header>
+  <header>Amit Techila Services Agent Page</header>
 
   <div class="search-container">
     <div class="logo">Search</div>
@@ -137,6 +199,7 @@ z<!DOCTYPE html>
         <button type="submit">🔍</button>
       </div>
     </form>
+    
     <!-- 🔥 USER PANEL FOR DYNAMIC PRECHAT -->
     <div class="user-panel">
       <h3>Simulate Logged-in User</h3>
@@ -157,8 +220,9 @@ z<!DOCTYPE html>
     <a href="https://amittechilaservices-lab.github.io/main/">Visit Main Page</a>
   </footer>
 
- <script type='text/javascript'>
-	let prechatData = {};
+  <script type='text/javascript'>
+    let prechatData = {};
+    
     function saveUserData() {
       prechatData = {
         Email: document.getElementById("email").value,
@@ -166,72 +230,48 @@ z<!DOCTYPE html>
         Last_Name: document.getElementById("lname").value,
         Subject: document.getElementById("subject").value,
       };
+      
       console.log('userPrechat>>', prechatData);
-		// Initialize chat AFTER values are captured
-  		initEmbeddedMessaging();
+      
+      // Show preview of saved data
+      const preview = document.getElementById("preview");
+      preview.innerHTML = `
+        <strong>Saved User Data:</strong><br>
+        Name: ${prechatData.First_Name} ${prechatData.Last_Name}<br>
+        Email: ${prechatData.Email}<br>
+        Subject: ${prechatData.Subject}
+      `;
+      preview.classList.add("active");
+      
+      // Initialize chat AFTER values are captured
+      initEmbeddedMessaging();
     }
-    console.log('userPrechat>>', prechatData);
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+    
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			window.addEventListener("onEmbeddedMessagingReady", () => {
-    			console.log("Received the onEmbeddedMessagingReady event…");
-				console.log("prechatData…", prechatData);
-				console.log("this.prechatData…", this.prechatData);
+        window.addEventListener("onEmbeddedMessagingReady", () => {
+          console.log("Received the onEmbeddedMessagingReady event…");
+          console.log("prechatData…", prechatData);
 
-    			// Send data to Salesforce
-   				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
-			});
-			embeddedservice_bootstrap.init(
-				'00Dd500000AyELt',
-				'External_Website_ESD',
-				'https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904',
-				{
-					scrt2URL: 'https://sendservices.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' ></script>
-
+          // Send data to Salesforce
+          embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
+        });
+        
+        embeddedservice_bootstrap.init(
+          '00Dd500000AyELt',
+          'External_Website_ESD',
+          'https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904',
+          {
+            scrt2URL: 'https://sendservices.my.salesforce-scrt.com'
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    }
+  </script>
+  <script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js'></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
