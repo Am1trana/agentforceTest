@@ -156,25 +156,23 @@ z<!DOCTYPE html>
     <a href="https://amittechilaservices-lab.github.io/main/">Visit Main Page</a>
   </footer>
 
-  <script type='text/javascript'>
- //    let userPrechat = {};
- //    function saveUserData() {
- //      userPrechat = {
- //        Email: document.getElementById("email").value,
- //        First_Name: document.getElementById("fname").value,
- //        Last_Name: document.getElementById("lname").value,
- //        Subject: document.getElementById("subject").value,
- //      };
- //      console.log('userPrechat>>', userPrechat);
-	// // 2️⃣ Persist same data into the conversation context (survives transfers)
- //    embeddedservice_bootstrap.prechatAPI.setConversationContext(userPrechat);
-	// embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(userPrechat);
- //    }
- //    console.log('userPrechat>>', userPrechat);
-    
+ <script type='text/javascript'>
+	 const prechatData = {
+      Email: "amit@techila.com",
+      First_Name: "Amit",
+      Last_Name: "Rana",
+      Subject: "Website Chat Lead"
+    };
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			window.addEventListener("onEmbeddedMessagingReady", () => {
+    			console.log("Received the onEmbeddedMessagingReady event…");
+
+    			// Send data to Salesforce
+   				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
+			});
 			embeddedservice_bootstrap.init(
 				'00Dd500000AyELt',
 				'External_Website_ESD',
@@ -187,30 +185,12 @@ z<!DOCTYPE html>
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-	window.addEventListener("onEmbeddedMessagingReady", function (event) {
-    console.log("✅ Messaging ready, sending persistent pre-chat data...");
-
-    const prechatData = {
-      Email: "amit@techila.com",
-      First_Name: "Amit",
-      Last_Name: "Rana",
-      Subject: "Website Chat Lead"
-    };
-
-    // 1️⃣ Populate hidden pre-chat fields (for bot context)
-    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
-
-    // 2️⃣ Persist same data into the conversation context (survives transfers)
-    //embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
-
-    // 3️⃣ (Optional) Store as custom parameters on MessagingSession
-    //embeddedservice_bootstrap.prechatAPI.setCustomContext({customParams: prechatData});
-  });
 </script>
 <script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
+
 
 
 
