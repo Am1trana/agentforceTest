@@ -126,7 +126,7 @@ z<!DOCTYPE html>
   </style>
 </head>
 <body>
-  <header>Amit Techila Services Agent 2</header>
+  <header>Amit Techila Services Agent 3</header>
 
   <div class="search-container">
     <div class="logo">Search</div>
@@ -169,6 +169,8 @@ z<!DOCTYPE html>
 
 			window.addEventListener("onEmbeddedMessagingReady", () => {
     			console.log("Received the onEmbeddedMessagingReady event…");
+				console.log("prechatData…", prechatData);
+				console.log("this.prechatData…", this.prechatData);
 
     			// Send data to Salesforce
    				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
@@ -190,6 +192,7 @@ z<!DOCTYPE html>
 
 </body>
 </html>
+
 
 
 
