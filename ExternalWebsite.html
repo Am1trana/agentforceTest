@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Search | Amit Techila Services Lab</title>
-<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search | Amit Techila Services Lab</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
+  <style>
     /* Reset & base styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
- 
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
     body {
       background: #f5f7fa;
       color: #333;
@@ -23,7 +18,7 @@
       justify-content: center;
       align-items: center;
     }
- 
+
     header {
       position: absolute;
       top: 20px;
@@ -33,7 +28,7 @@
       font-size: 1.1rem;
       letter-spacing: 0.5px;
     }
- 
+
     .search-container {
       text-align: center;
       width: 90%;
@@ -42,100 +37,88 @@
       padding: 40px 30px;
       border-radius: 20px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      transition: 0.3s ease;
     }
- 
-    .search-container:hover {
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    }
- 
-    .logo {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #1a73e8;
-      margin-bottom: 25px;
-      letter-spacing: 0.5px;
-    }
- 
+
+    .logo { font-size: 2rem; font-weight: 700; color: #1a73e8; margin-bottom: 25px; }
+
     .search-box {
       display: flex;
       align-items: center;
       border: 1px solid #ddd;
       border-radius: 50px;
       padding: 10px 20px;
-      transition: 0.2s;
     }
- 
-    .search-box:hover {
-      border-color: #1a73e8;
-      box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.1);
-    }
- 
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      background: none;
-      padding: 8px;
-      color: #333;
-    }
- 
+    .search-box input { flex: 1; border: none; outline: none; font-size: 1rem; background: none; padding: 8px; }
+
     .search-box button {
-      background: #1a73e8;
-      border: none;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
+      background: #1a73e8; border: none; color: white; padding: 10px 18px;
+      border-radius: 30px; font-size: 1rem; cursor: pointer;
     }
- 
-    .search-box button:hover {
-      background: #1558b0;
+
+    footer { margin-top: 40px; font-size: 0.9rem; color: #888; text-align: center; }
+    footer a { color: #1a73e8; text-decoration: none; }
+
+    /* User Panel */
+    .user-panel {
+      margin-top: 35px;
+      text-align: left;
+      width: 100%;
     }
- 
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #888;
-      text-align: center;
-    }
- 
- 
-    footer a {
+
+    .user-panel h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
       color: #1a73e8;
-      text-decoration: none;
-      font-weight: 500;
     }
- 
-    footer a:hover {
-      text-decoration: underline;
+
+    .user-panel input {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
     }
- 
-    @media (max-width: 480px) {
-      .search-container {
-        padding: 30px 20px;
-      }
- 
-      .logo {
-        font-size: 1.6rem;
-      }
+
+    .save-btn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: #7e521e;
+      color: white;
+      cursor: pointer;
     }
-</style>
+    .save-btn:hover { background: #5f3d16; }
+
+    .preview-box {
+      margin-top: 15px;
+      background: #f0f4ff;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #333;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-<header>Amit Techila Services Agent 1</header>
- 
+  <header>Amit Techila Services Agent 1</header>
+
   <div class="search-container">
-<div class="logo">Search</div>
-<form action="https://www.google.com/search" method="GET">
-<div class="search-box">
-<input type="text" name="q" placeholder="Search anything..." required />
-<button type="submit">🔍</button>
-  <div class="user-panel">
-     <!-- 🔥 USER PANEL FOR DYNAMIC PRECHAT -->
+    <div class="logo">Search</div>
+
+    <form action="https://www.google.com/search" method="GET">
+      <div class="search-box">
+        <input type="text" name="q" placeholder="Search anything..." required />
+        <button type="submit">🔍</button>
+      </div>
+    </form>
+
+    <!-- 🔥 USER PANEL FOR DYNAMIC PRECHAT -->
+    <div class="user-panel">
       <h3>Simulate Logged-in User</h3>
 
       <input id="fname" type="text" placeholder="First Name" />
@@ -147,54 +130,68 @@
 
       <div id="preview" class="preview-box"></div>
     </div>
-</div>
-</form>
-</div>
- 
+
+  </div>
+
   <footer>
     © 2025 Amit Techila Services Lab • 
-<a href="https://amittechilaservices-lab.github.io/main/">Visit Main Page</a>
-</footer>
- 
-  <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			embeddedservice_bootstrap.init(
-				'00Dd500000AyELt',
-				'External_Website_ESD',
-				'https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904',
-				{
-					scrt2URL: 'https://sendservices.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-	window.addEventListener("onEmbeddedMessagingReady", function (event) {
-    console.log("✅ Messaging ready, sending persistent pre-chat data...");
- 
-    const prechatData = {
-      Email: "amit@techila.com",
-      First_Name: "Amit",
-      Last_Name: "Rana",
-      Subject: "Website Chat Lead"
-    };
- 
-    // 1️⃣ Populate hidden pre-chat fields (for bot context)
-    //embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(prechatData);
- 
-    // 2️⃣ Persist same data into the conversation context (survives transfers)
-    embeddedservice_bootstrap.prechatAPI.setConversationContext(prechatData);
- 
-    // 3️⃣ (Optional) Store as custom parameters on MessagingSession
-    //embeddedservice_bootstrap.prechatAPI.setCustomContext({customParams: prechatData});
-  });
+    <a href="https://amittechilaservices-lab.github.io/main/">Visit Main Page</a>
+  </footer>
+
+<script>
+let userPrechat = {};
+
+function saveUserData() {
+  userPrechat = {
+    Email: document.getElementById("email").value,
+    First_Name: document.getElementById("fname").value,
+    Last_Name: document.getElementById("lname").value,
+    Subject: document.getElementById("subject").value,
+  };
+
+  // Show preview box with values
+  const p = document.getElementById("preview");
+  p.style.display = "block";
+  p.innerHTML = `
+      <strong>Prechat Values Loaded:</strong><br>
+      First Name: ${userPrechat.First_Name} <br>
+      Last Name: ${userPrechat.Last_Name} <br>
+      Email: ${userPrechat.Email} <br>
+      Subject: ${userPrechat.Subject}
+  `;
+
+  // Inject values into chat
+  if (window.embeddedservice_bootstrap?.prechatAPI) {
+    embeddedservice_bootstrap.prechatAPI.setConversationContext(userPrechat);
+    console.log("Dynamic Prechat Injected:", userPrechat);
+  } else {
+    console.warn("Chat not ready yet. It will load when ready.");
+  }
+}
+
+function initEmbeddedMessaging() {
+  try {
+    embeddedservice_bootstrap.settings.language = 'en_US';
+
+    embeddedservice_bootstrap.init(
+      '00Dd500000AyELt',
+      'External_Website_ESD',
+      'https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904',
+      {
+        scrt2URL: 'https://sendservices.my.salesforce-scrt.com'
+      }
+    );
+  } catch (err) {
+    console.error('Error loading Embedded Messaging: ', err);
+  }
+}
+
+window.addEventListener("onEmbeddedMessagingReady", function () {
+  console.log("Messaging ready. Waiting for user input...");
+});
 </script>
-<script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
- 
+
+<script src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
- 
- 
