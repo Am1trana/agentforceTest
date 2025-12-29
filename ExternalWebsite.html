@@ -202,7 +202,8 @@
       <input id="fname" type="text" placeholder="First Name" />
       <input id="lname" type="text" placeholder="Last Name" />
       <input id="email" type="email" placeholder="Email Address" />
-      <input id="subject" type="text" placeholder="Subject" />
+      <input id="subject" type="text" placeholder="id" />
+      <input id="Role" type="text" placeholder="Role" />
 
       <button type="button" class="save-btn" onclick="saveUserData()">Sign in</button>
 
@@ -223,7 +224,8 @@
         Email: document.getElementById("email").value,
         First_Name: document.getElementById("fname").value,
         Last_Name: document.getElementById("lname").value,
-        Subject: document.getElementById("subject").value,
+        Id: document.getElementById("subject").value,
+        Role: document.getElementById("Role").value,
       };
       
       console.log('userPrechat>>', prechatData);
@@ -234,7 +236,8 @@
         <strong>Saved User Data:</strong><br>
         Name: ${prechatData.First_Name} ${prechatData.Last_Name}<br>
         Email: ${prechatData.Email}<br>
-        Subject: ${prechatData.Subject}
+        Id: ${prechatData.Id} <br>
+        Role: ${prechatData.Role} <br>
       `;
       preview.classList.add("active");
       
@@ -270,4 +273,5 @@
   <script type='text/javascript' src='https://sendservices.my.site.com/ESWExternalWebsiteESD1760597753904/assets/js/bootstrap.min.js'></script>
 </body>
 </html>
+
 
